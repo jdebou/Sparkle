@@ -55,10 +55,13 @@ jobs:
         run: echo "root='${{ steps.runvcpkg.outputs.RUNVCPKG_VCPKG_ROOT_OUT }}', triplet='${{ steps.runvcpkg.outputs.RUNVCPKG_VCPKG_DEFAULT_TRIPLET_OUT }}'"
 
       - name: Run CMake with vcpkg.json manifest
-        run: cmake --preset release
+        run: |
+          cmake --preset release
+          cmake --build --preset release
+          cmake --install build/release
 
-      - name: Build with CMake
-        run: cmake --build --preset release
-
-      - name: Install Sparkle
-        run: cmake --install build/release
+      - name: Run Unit Tests
+        run: |
+          cmake --preset test
+          cmake --build --preset test
+          ls
