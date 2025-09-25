@@ -1,5 +1,6 @@
 ## Installation
 
+
 This section explains how to install the dependencies required for Sparkle and the steps to build and install the Sparkle library on your Windows computer.
 
 ### Prerequisites
